@@ -17,17 +17,17 @@ const SCOPES = [
 
 const H_ALIGN_OPTIONS = [
   {
-    icon: 'long-arrow-alt-left',
+    icon: 'align-left',
     title: 'align left',
     value: 'flex-start'
   },
   {
-    icon: 'arrows-alt-h',
+    icon: 'align-center',
     title: 'stretch horizontally',
     value: 'space-around'
   },
   {
-    icon: 'long-arrow-alt-right',
+    icon: 'align-right',
     title: 'align right',
     value: 'flex-end'
   }
@@ -185,7 +185,8 @@ function PropEditor({config}) {
   function getAlignButtons() {
     const pathPrefix = `instancePropsMap.${selectedComponentId}.`;
     return (
-      <div className="align-btns">
+      <div className="row align-btns">
+        <label>Orientation</label>
         <ToggleButtons buttons={H_ALIGN_OPTIONS} path={pathPrefix + 'hAlign'} />
         <ToggleButtons buttons={V_ALIGN_OPTIONS} path={pathPrefix + 'vAlign'} />
       </div>
@@ -200,6 +201,7 @@ function PropEditor({config}) {
       </div>
       <div className="component-name">{selectedComponent.componentName}</div>
       {keys.map(key => configRow(context, selectedComponent, key, config[key]))}
+      {getAlignButtons()}
       {context.propScope === 'instance' && (
         <div className="prop-controls">
           <button
@@ -215,7 +217,6 @@ function PropEditor({config}) {
           </button>
         </div>
       )}
-      {getAlignButtons()}
     </div>
   );
 }

@@ -1,9 +1,9 @@
 import {
-  faArrowsAltH,
+  faAlignCenter,
+  faAlignLeft,
+  faAlignRight,
   faArrowsAltV,
   faLongArrowAltDown,
-  faLongArrowAltLeft,
-  faLongArrowAltRight,
   faLongArrowAltUp,
   faPen,
   faPlus,
@@ -19,11 +19,11 @@ import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
 import './App.scss';
 
-library.add(faArrowsAltH);
+library.add(faAlignCenter);
+library.add(faAlignLeft);
+library.add(faAlignRight);
 library.add(faArrowsAltV);
 library.add(faLongArrowAltDown);
-library.add(faLongArrowAltLeft);
-library.add(faLongArrowAltRight);
 library.add(faLongArrowAltUp);
 library.add(faPen);
 library.add(faPlus);
