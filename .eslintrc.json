@@ -7,7 +7,7 @@
     "node": true
   },
 
-  "extends": ["react-app", "plugin:jsx-a11y/recommended"],
+  "extends": ["prettier", "react-app", "plugin:jsx-a11y/recommended"],
 
   "globals": {
     "afterEach": false,
