@@ -24,6 +24,8 @@ export default () => {
     const properties = {
       componentId,
       componentName: selectedComponentName,
+      hAlign: 'flex-start',
+      vAlign: 'flex-start',
       onPage: selectedPage
     };
 

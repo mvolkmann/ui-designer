@@ -29,7 +29,7 @@
     }
   },
 
-  "plugins": ["flowtype", "html", "jsx-a11y", "react"],
+  "plugins": ["html", "jsx-a11y", "react"],
 
   "settings": {
     "react": {
@@ -65,27 +65,6 @@
     "dot-notation": "error",
     "eol-last": "off",
     "eqeqeq": "error",
-    "flowtype/boolean-style": ["error", "boolean"],
-    //"flowtype/define-flow-type": "error",
-    "flowtype/delimiter-dangle": ["error", "never"],
-    "flowtype/generic-spacing": ["error", "never"],
-    "flowtype/no-dupe-keys": "error",
-    "flowtype/no-primitive-constructor-types": "error",
-    "flowtype/no-weak-types": "off",
-    "flowtype/object-type-delimiter": ["error", "comma"],
-    "flowtype/require-parameter-type": "off",
-    "flowtype/require-return-type": "off",
-    "flowtype/require-valid-file-annotation": "off",
-    "flowtype/require-variable-type": "off",
-    "flowtype/semi": ["error", "always"],
-    "flowtype/sort-keys": "off",
-    "flowtype/space-after-type-colon": ["error", "always"],
-    "flowtype/space-before-generic-bracket": ["error", "never"],
-    "flowtype/space-before-type-colon": ["error", "never"],
-    "flowtype/type-id-match": "error",
-    "flowtype/union-intersection-spacing": ["error", "always"],
-    "flowtype/use-flow-type": "error",
-    "flowtype/valid-syntax": "error",
     "func-call-spacing": ["error", "never"],
     "func-names": "off",
     "func-name-matching": "error",

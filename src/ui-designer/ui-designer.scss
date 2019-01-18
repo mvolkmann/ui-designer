@@ -51,6 +51,8 @@
 
   .react-grid-item {
     display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
 
     &.horizontal-flex-end {
       justify-content: flex-end;
