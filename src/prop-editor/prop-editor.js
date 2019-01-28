@@ -3,12 +3,16 @@
 import {EasyContext} from 'context-easy';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {object} from 'prop-types';
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 
 import {clearInstanceProperties} from '../library';
 import ToggleButtons from '../toggle-buttons/toggle-buttons';
 
 import './prop-editor.scss';
+
+// These are "type" attribute values for input elements
+// that have a concept of a cursor position.
+const HAVE_CURSOR = ['email', 'password', 'search', 'tel', 'text', 'url'];
 
 const SCOPES = [
   {label: 'All', value: 'class'},
@@ -50,6 +54,8 @@ const V_ALIGN_OPTIONS = [
   }
 ];
 
+let caretEnd, caretStart, lastInput;
+
 function configRow(context, component, key, properties) {
   const {propScope} = context;
   const {defaultValue, type} = properties;
@@ -69,6 +75,24 @@ function configRow(context, component, key, properties) {
   if (value === undefined) value = defaultValue;
 
   const handleChange = event => {
+    const {target} = event;
+    const {localName} = target;
+    let saveCaret = false;
+    if (localName === 'input') {
+      const type = target.getAttribute('type');
+      saveCaret = HAVE_CURSOR.includes(type);
+    } else if (localName === 'textarea') {
+      saveCaret = true;
+    }
+
+    if (saveCaret) {
+      lastInput = event.target;
+      caretStart = lastInput.selectionStart;
+      caretEnd = lastInput.selectionEnd;
+    } else {
+      lastInput = null;
+    }
+
     const id =
       propScope === 'class' ? component.componentName : component.componentId;
     const path = `${propScope}PropsMap.${id}.${key}`;
@@ -172,6 +196,10 @@ function getEventValue(type, event) {
 function PropEditor({config}) {
   const keys = Object.keys(config).sort();
   if (keys.length === 0) return null;
+
+  useEffect(() => {
+    if (lastInput) lastInput.setSelectionRange(caretStart, caretEnd);
+  });
 
   const context = useContext(EasyContext);
   const {instancePropsMap, selectedComponentId} = context;

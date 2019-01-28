@@ -4,7 +4,7 @@
 
 import {EasyContext, Input} from 'context-easy';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {selectPage} from '../library';
+import {clearSelection, selectPage} from '../library';
 import React, {useContext} from 'react';
 import './pages.scss';
 
@@ -13,7 +13,7 @@ const handleSubmit = e => e.preventDefault();
 
 export default () => {
   const context = useContext(EasyContext);
-  const {pageName, pages, selectedComponentId, selectedPage} = context;
+  const {pageName, pages, selectedPage} = context;
   const pageNames = Object.keys(pages).sort();
 
   const addPage = () => {
@@ -25,13 +25,8 @@ export default () => {
     }));
 
     selectPage(context, pageName);
-    //clearSelection();
+    clearSelection(context);
     context.set('pageName', '');
-  };
-
-  const clearSelection = () => {
-    context.set(`instancePropsMap.${selectedComponentId}.selected`, false);
-    context.set('selectedComponentId', 0);
   };
 
   const deletePage = pageName => {
@@ -48,7 +43,7 @@ export default () => {
 
     // Delete the page.
     context.delete('pages.' + pageName);
-    clearSelection();
+    clearSelection(context);
   };
 
   return (

@@ -18,6 +18,14 @@ export function clearInstanceProperties(context, componentId) {
   context.set(`instancePropsMap.${componentId}`, copy);
 }
 
+export function clearSelection(context) {
+  context.set(
+    `instancePropsMap.${context.selectedComponentId}.selected`,
+    false
+  );
+  context.set('selectedComponentId', 0);
+}
+
 export function getComponent(properties) {
   const {componentName} = properties;
   const component = componentMap[componentName];
@@ -78,5 +86,6 @@ export function selectPage(context, pageName) {
   // ui-designer.js checks for this in saveLayout.
   sessionStorage.setItem('page-changed', true);
 
+  clearSelection(context);
   context.set('selectedPage', pageName);
 }
