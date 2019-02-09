@@ -11,7 +11,7 @@ import './pages.scss';
 // Prevent form submit.
 const handleSubmit = e => e.preventDefault();
 
-export default () => {
+export default function Pages() {
   const context = useContext(EasyContext);
   const {pageName, pages, selectedPage} = context;
   const pageNames = Object.keys(pages).sort();
@@ -70,4 +70,4 @@ export default () => {
       ))}
     </div>
   );
-};
+}

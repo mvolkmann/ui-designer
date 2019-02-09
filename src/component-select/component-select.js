@@ -6,7 +6,7 @@ import {getComponentNames, selectPage, toggleSelected} from '../library';
 
 import './component-select.scss';
 
-export default () => {
+export default function ComponentSelect() {
   const context = useContext(EasyContext);
   const {
     editingPageName,
@@ -94,4 +94,4 @@ export default () => {
       </div>
     </section>
   );
-};
+}

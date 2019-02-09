@@ -22,7 +22,7 @@ import './ui-designer.scss';
 
 const MODES = [{label: 'Edit'}, {label: 'Demo'}];
 
-export default () => {
+export default function UiDesigner() {
   const context = useContext(EasyContext);
   const {
     classPropsMap,
@@ -127,4 +127,4 @@ export default () => {
       <footer />
     </div>
   );
-};
+}

@@ -11,11 +11,11 @@ function padNumber(n) {
 const config = {
   backgroundColor: {
     type: 'color',
-    defaultValue: '#BBBBBB'
+    defaultValue: '#ffffff'
   },
   color: {
     type: 'color',
-    defaultValue: '#0000FF'
+    defaultValue: '#0000ff'
   },
   fontFamily: {
     type: 'fontFamily',
